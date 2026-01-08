@@ -32,7 +32,7 @@ include "koneksi.php";
                     <div class="card-body">
                         <div class="text-center mb-3">
                             <i class="bi bi-person-circle h1 display-4 text-secondary"></i>
-                            <p>Kuliner Nusantara</p>
+                            <p>Welcome to Kuliner Nusantara</p>
                             <hr />
                         </div>
                         <form action="" method="post">
