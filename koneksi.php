@@ -4,14 +4,16 @@ date_default_timezone_set('Asia/Jakarta');
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db = "webdailyjornal";
+$db = "dailyjournal"; //nama database
 
-// create connection
-$conn = mysqli_connect($servername, $username, $password, $db);
+//create connection
+$conn = new mysqli($servername,$username,$password,$db);
 
-// check connection
-if (!$conn) {
-    die("Connaction failed: " .mysqli_connect_error());
+//check apakah ada error connection
+if($conn->connect_error){
+	//jika ada, hentikan script dan tampilkan pesan error
+	die("Connection failed : ".$conn->connect_error);
 }
-//echo "Connection successfully<hr>";
+
+//echo "Connected successfully<hr>";
 ?>
