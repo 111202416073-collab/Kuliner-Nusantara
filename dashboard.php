@@ -1,7 +1,15 @@
 <?php
 include "koneksi.php";
 
-/* JUMLAH ARTICLE */
+/* AMBIL DATA USER  */
+$username = $_SESSION['username'];
+
+$query_user = mysqli_query($conn, "SELECT foto FROM user WHERE username='$username'");
+$data_user = mysqli_fetch_assoc($query_user);
+
+$foto_user = $data_user['foto'];
+
+/*  JUMLAH ARTICLE */
 $sql_article = "SELECT COUNT(*) AS total FROM article";
 $query_article = mysqli_query($conn, $sql_article);
 $data_article = mysqli_fetch_assoc($query_article);
@@ -13,6 +21,22 @@ $query_resep = mysqli_query($conn, $sql_resep);
 $data_resep = mysqli_fetch_assoc($query_resep);
 $jumlah_resep = $data_resep['total'];
 ?>
+
+<div class="text-center mt-4">
+    <h5>Selamat Datang,</h5>
+    <h4 class="text-danger fw-bold">
+        <?php echo $_SESSION['username']; ?>
+    </h4>
+
+    <img 
+        src="img/<?php echo $foto_user; ?>" 
+        class="rounded-circle shadow mt-3"
+        width="160"
+        height="160"
+        style="object-fit: cover;"
+        alt="Foto Profil"
+    >
+</div>
 
 <div class="row row-cols-1 row-cols-md-4 g-4 justify-content-center pt-4">
 
